@@ -1,0 +1,9 @@
+<template>
+    <template if:true={error}>
+        <template if:true={error.body}>
+            {error.body.message}
+        </template>
+    </template>
+    <lightning-datatable data={data} columns={columns} key-field="id" sorted-by={sortedBy} 
+        sorted-direction={sortDirection} hide-checkbox-column onsort={updateColumnSorting}></lightning-datatable>
+</template>
