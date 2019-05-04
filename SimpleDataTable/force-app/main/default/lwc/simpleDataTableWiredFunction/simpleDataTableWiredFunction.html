@@ -5,5 +5,7 @@
         </template>
     </template>
     <lightning-datatable data={data} columns={columns} key-field="id"  hide-checkbox-column 
+    onsort={updateColumnSorting}></lightning-datatable>
+    <lightning-datatable data={data} columns={columns} key-field="id"  hide-checkbox-column 
         onsort={updateColumnSorting}></lightning-datatable>
 </template>

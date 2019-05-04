@@ -6,8 +6,8 @@
 
                   
 -->
-
-    <c:simpleDataTableLWC sObjectName="Contact"
+ <h1>simpleDataTableWiredFunction</h1>
+    <c:simpleDataTableWiredFunction sObjectName="Contact"
     sObjectFieldsNames="FirstName,LastName,BirthDate,HireDate__c,Branch__c,Position__c,Email,Phone"
     whereClause="RecordType.Name = 'Employee'" />
     

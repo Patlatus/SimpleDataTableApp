@@ -8,8 +8,6 @@ export default class SimpleDataTableLWC extends LightningElement {
     @track data;
     @track columns;
     @track error;
-    //@track sortedBy;
-    //@track sortDirection;
     connectedCallback() {
         getColumnsAndData({ sObjectName:this.sObjectName, sObjectFieldsNames:this.sObjectFieldsNames.split(',')
             , whereClause: this.whereClause }).then(result=>{
@@ -24,9 +22,6 @@ export default class SimpleDataTableLWC extends LightningElement {
     updateColumnSorting(e) {
         this.sortedBy = e.detail.fieldName;
         this.sortDirection = e.detail.sortDirection;
-        //e.srcElement.sortedBy = e.detail.fieldName;
-        //e.srcElement.sortDirection = e.detail.sortDirection;
-        
         this.sortData(e.detail.fieldName, e.detail.sortDirection);
     }
 

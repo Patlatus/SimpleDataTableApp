@@ -34,7 +34,7 @@ public inherited sharing virtual class SimpleDataTableController  {
             'data' => query(sObjectName, sObjectFieldsNames, whereClause)
         };
     }
-    @AuraEnabled
+    @AuraEnabled(cacheable=true)
     public static Map<String, Object> getColumnsAndData(
         String sObjectName, List<String> sObjectFieldsNames, String whereClause
     ) {
