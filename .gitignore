@@ -1,2 +1,3 @@
 .sfdx
 /SimpleDataTable/.vscode/settings.json
+/SimpleDataTable/force-app/main/default/lwc/jsconfig.json
