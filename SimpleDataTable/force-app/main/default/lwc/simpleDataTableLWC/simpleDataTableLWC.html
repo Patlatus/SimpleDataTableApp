@@ -3,7 +3,8 @@
         <template if:true={error.body}>
             {error.body.message}
         </template>
-    </template>
-    <lightning-datatable data={data} columns={columns} key-field="id" sorted-by={sortedBy} 
-        sorted-direction={sortDirection} hide-checkbox-column onsort={updateColumnSorting}></lightning-datatable>
+    </template><!--</lightning-datatable>>sorted-by={sortedBy} 
+        sorted-direction={sortDirection}-->
+    <lightning-datatable data={data} columns={columns} key-field="id"  hide-checkbox-column 
+        onsort={updateColumnSorting}></lightning-datatable>
 </template>

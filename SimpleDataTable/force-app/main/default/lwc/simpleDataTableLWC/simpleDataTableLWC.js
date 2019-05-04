@@ -8,8 +8,8 @@ export default class SimpleDataTableLWC extends LightningElement {
     @track data;
     @track columns;
     @track error;
-    @track sortedBy;
-    @track sortDirection;
+    //@track sortedBy;
+    //@track sortDirection;
     connectedCallback() {
         getColumnsAndData({ sObjectName:this.sObjectName, sObjectFieldsNames:this.sObjectFieldsNames.split(',')
             , whereClause: this.whereClause }).then(result=>{
@@ -26,6 +26,7 @@ export default class SimpleDataTableLWC extends LightningElement {
         this.sortDirection = e.detail.sortDirection;
         //e.srcElement.sortedBy = e.detail.fieldName;
         //e.srcElement.sortDirection = e.detail.sortDirection;
+        
         this.sortData(e.detail.fieldName, e.detail.sortDirection);
     }
 
@@ -33,12 +34,13 @@ export default class SimpleDataTableLWC extends LightningElement {
         var reverse = sortDirection !== 'asc';
         //sorts the rows based on the column header that's clicked
         var data = this.data;
-        data.sort(this.sortBy(fieldName, reverse));
+        var primer = (data && data.length && data[0].Origin) ? (x, field)=>x.Origin[field] : null;
+        data.sort(this.sortBy(fieldName, reverse, primer))
         this.data = JSON.parse(JSON.stringify(data)) ;
     }
     sortBy(field, reverse, primer) {
         var key = primer ?
-            function(x) {return primer(x[field])} :
+            function(x) {return primer(x,field)} :
             function(x) {return x[field]};
         //checks if the two rows should switch places
         reverse = !reverse ? 1 : -1;
