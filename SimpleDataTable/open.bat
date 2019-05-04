@@ -1,1 +1,1 @@
- sfdx force:org:open -u DE -p c/SimpleDataApp.app
+ sfdx force:org:open -p c/SimpleDataApp.app -u %1 

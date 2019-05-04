@@ -1,0 +1,12 @@
+<template>
+    <template if:true={columnsAndData.error}>
+        <template if:true={columnsAndData.error.body}>
+            {error.body.message}
+        </template>
+    </template>
+    <h1>Wired Property version</h1>
+    <template if:true={columnsAndData.data}>
+        <lightning-datatable data={columnsAndData.data.data} columns={columnsAndData.data.columns} key-field="id"  
+        hide-checkbox-column onsort={updateColumnSorting}></lightning-datatable>
+    </template>
+</template>
